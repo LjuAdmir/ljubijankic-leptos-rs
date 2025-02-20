@@ -820,6 +820,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "leptos_meta"
+version = "0.7.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4566969810e3f29cfdafd6dd430382e42f72f4cdebfbfa263bd98f75feaf166d"
+dependencies = [
+ "futures",
+ "indexmap",
+ "leptos",
+ "once_cell",
+ "or_poisoned",
+ "send_wrapper",
+ "wasm-bindgen",
+ "web-sys",
+]
+
+[[package]]
 name = "leptos_router"
 version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -900,6 +916,7 @@ dependencies = [
  "console_error_panic_hook",
  "console_log",
  "leptos",
+ "leptos_meta",
  "leptos_router",
  "log",
 ]
