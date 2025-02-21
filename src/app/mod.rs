@@ -38,7 +38,7 @@ pub fn App() -> impl IntoView {
         <Title formatter=|text| format!("Admir Ljubijankić - {text}") />
 
         <Router>
-            <nav class="flex flex-col w-full overflow-y-scroll md:w-fit bg-zinc-800 p-8">
+            <nav class="flex flex-col flex-none w-full overflow-y-scroll md:w-fit bg-zinc-800 p-8">
                 <div class="flex justify-between items-center">
                     <HeaderTitle />
                     <button
@@ -50,8 +50,8 @@ pub fn App() -> impl IntoView {
                 <Navigation selected=selected menu_open=menu_open />
                 <CustomFooter class="hidden md:block md:flex-none" />
             </nav>
-            <div class="flex-auto overflow-y-scroll bg-zinc-900 p-8 lg:p-20">
-                <div class="width-full lg:w-[calc(100%-24rem)]">
+            <div class="bg-zinc-900 p-8 lg:p-20 overflow-y-scroll">
+                <div class="max-w-[48rem] mx-auto">
                     <Routes fallback=|| view!{"404"}>
                         <Route path=path!("/") view={home::Home} />
                         <Route path=path!("/about") view={about::About} />
@@ -133,8 +133,7 @@ fn Navigation(
 fn CustomFooter(
     class: &'static str,
 ) -> impl IntoView {
-    let now = chrono::Utc::now();
-    let (year, _) = signal(now.year());
+    let (year, _) = signal(chrono::Utc::now().year());
 
     view! {
         <footer
