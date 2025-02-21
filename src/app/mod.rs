@@ -10,6 +10,8 @@ use leptos_router::{
 };
 use leptos_meta::*;
 
+use chrono::Datelike;
+
 #[component]
 pub fn App() -> impl IntoView {
     provide_meta_context();
@@ -36,7 +38,7 @@ pub fn App() -> impl IntoView {
         <Title formatter=|text| format!("Admir Ljubijankić - {text}") />
 
         <Router>
-            <nav class="flex-none w-full md:w-fit bg-zinc-800 p-8">
+            <nav class="flex flex-col w-full overflow-y-scroll md:w-fit bg-zinc-800 p-8">
                 <div class="flex justify-between items-center">
                     <HeaderTitle />
                     <button
@@ -46,15 +48,17 @@ pub fn App() -> impl IntoView {
                     </button>
                 </div>
                 <Navigation selected=selected menu_open=menu_open />
-                <CustomFooter class="hidden md:block md:absolute md:bottom-0" />
+                <CustomFooter class="hidden md:block md:flex-none" />
             </nav>
-            <div class="flex-auto overflow-y-scroll bg-zinc-950 p-8 lg:p-20">
-            <Routes fallback=|| view!{"404"}>
-                <Route path=path!("/") view={home::Home} />
-                <Route path=path!("/about") view={about::About} />
-                <Route path=path!("/contact") view={contact::Contact} />
-                <Route path=path!("/projects") view={projects::Projects} />
-            </Routes>
+            <div class="flex-auto overflow-y-scroll bg-zinc-900 p-8 lg:p-20">
+                <div class="width-full lg:w-[calc(100%-24rem)]">
+                    <Routes fallback=|| view!{"404"}>
+                        <Route path=path!("/") view={home::Home} />
+                        <Route path=path!("/about") view={about::About} />
+                        <Route path=path!("/contact") view={contact::Contact} />
+                        <Route path=path!("/projects") view={projects::Projects} />
+                    </Routes>
+                </div>
             </div>
             <CustomFooter class="block md:hidden" />
         </Router>
@@ -68,7 +72,7 @@ fn HeaderTitle() -> impl IntoView {
         .expect("HeaderTitle must be used within a context provider");
 
     view! {
-        <h1 class="font-black text-sky-600 text-2xl sm:text-3xl md:text-4xl">
+        <h1 class="font-[1000] text-sky-600 text-2xl sm:text-3xl md:text-4xl flex-none">
             <a href="/"
                 on:click=move |_| set_selected.set("home".to_string())
                 class="flex items-center space-x-2 md:block md:space-x-0"
@@ -90,7 +94,7 @@ fn Navigation(
 
     view! {
         <ul
-            class="md:block pt-4 text-2xl text-sky-800"
+            class="md:block pt-4 text-2xl text-sky-800 flex-grow"
             class:hidden=move || !menu_open.get()
         >
             <li
@@ -129,6 +133,9 @@ fn Navigation(
 fn CustomFooter(
     class: &'static str,
 ) -> impl IntoView {
+    let now = chrono::Utc::now();
+    let (year, _) = signal(now.year());
+
     view! {
         <footer
             class=class.to_owned() + " pb-2"
@@ -142,7 +149,7 @@ fn CustomFooter(
                 </a>
             </div>
             <div>
-                <p class="text-white/25 pl-4 md:pl-0">"© 2025 Admir Ljubijankić"</p>
+                <p class="text-white/25 pl-4 md:pl-0">"© " {year} " Admir Ljubijankić"</p>
             </div>
         </footer>
     }
