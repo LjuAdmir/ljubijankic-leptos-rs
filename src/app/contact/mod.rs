@@ -63,7 +63,7 @@ fn ContactForm() -> impl IntoView {
                     submit_action.dispatch(input);
                 }
             >
-                <div>
+                <div class="pb-2">
                     <label for="name" class="block font-bold mb-2">"Name"</label>
                     <input
                         type="text"
@@ -75,8 +75,8 @@ fn ContactForm() -> impl IntoView {
                     />
                 </div>
 
-                <div>
-                    <label for="email">"Email"</label>
+                <div class="block font-bold mb-2">
+                    <label for="email" class="block font-bold mb-2">"Email"</label>
                     <input
                         type="email"
                         id="email"
@@ -88,7 +88,7 @@ fn ContactForm() -> impl IntoView {
                 </div>
 
                 <div>
-                    <label for="message">"Message"</label>
+                    <label for="message" class="block font-bold mb-2">"Message"</label>
                     <textarea
                         id="message"
                         class="w-full px-3 border border-zinc-700 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-500 bg-zinc-900"
