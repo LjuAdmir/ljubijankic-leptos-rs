@@ -13,3 +13,7 @@ leptos_meta = "0.7.7"
 leptos_router = "0.7.7"
 log = "0.4.25"
 chrono = "0.4.39"
+serde = "1.0.218"
+send_wrapper = "0.6.0"
+web-sys = "0.3.77"
+gloo-net = { version="0.6.0", features = ["json"] }
