@@ -31,7 +31,10 @@ pub fn Projects() -> impl IntoView {
 
     view! {
         <Title text="Projects" />
-        <h1 class="uppercase text-3xl pb-4">"Projects"</h1>
+        <h1 class="uppercase text-3xl font-[1000]">"Projects"</h1>
+        <p>"Here are some of the public projects I've worked on. Page is work in progress ... please bear with me."</p>
+        <hr class="pb-8" />
+
         <Suspense
             fallback= move || view! { <div class="text-center">"Loading..."</div> }
         >
