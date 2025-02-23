@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Personal Portfolio",
+        "category": 1,
+        "description": "My personal portfolio website",
+        "url": "https://ljubijankic.si",
+        "status": "completed"
+    },
+    {
+        "name": "GW2 Simple Event Timer",
+        "category": 1,
+        "description": "A simple event timer for Nexus loader.",
+        "url": "",
+        "status": "wip"
+    }
+]

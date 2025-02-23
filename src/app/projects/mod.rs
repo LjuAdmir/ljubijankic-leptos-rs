@@ -1,6 +1,18 @@
 use leptos::prelude::*;
 use leptos_meta::Title;
 
+struct ProjectCategory {
+    id: u32,
+    name: String,
+}
+
+struct Project {
+    id: u32,
+    name: String,
+    description: String,
+    category: ProjectCategory,
+}
+
 #[component]
 pub fn Projects() -> impl IntoView {
     view! {
