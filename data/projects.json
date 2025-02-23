@@ -12,5 +12,19 @@
         "description": "A simple event timer for Nexus loader.",
         "url": "",
         "status": "wip"
+    },
+    {
+        "name": "Python test",
+        "category": 2,
+        "description": "Python test project",
+        "url": "",
+        "status": "wip"
+    },
+    {
+        "name": "Rust test",
+        "category": 1,
+        "description": "Rust test project",
+        "url": "",
+        "status": "wip"
     }
 ]

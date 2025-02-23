@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use send_wrapper::SendWrapper;
 
-#[derive(Serialize, Deserialize, Default, Clone, Debug)]
+#[derive(Serialize, Deserialize, Default, Clone)]
 struct ContactFormData {
     name: String,
     email: String,
